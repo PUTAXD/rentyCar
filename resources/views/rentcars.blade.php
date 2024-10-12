@@ -64,18 +64,18 @@
                     <div class="pt-6">
                         <div class="mb-4 flex items-center justify-between gap-4">
                             <span
-                                class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300">
-                                Merk </span>
+                                class="me-2 rounded bg-{{$rentcar->merk->color}}-100 px-2.5 py-0.5 text-xs font-medium text-grey-500 dark:bg-primary-900 dark:text-primary-300">
+                                {{$rentcar->merk->name}} </span>
 
                         </div>
 
                         <a href="#"
-                            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">MERK -> {{$rentcar->type}}</a>
+                            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{$rentcar->merk->name}} -> {{$rentcar->type}}</a>
 
                         <div class="mt-2 flex items-center gap-2">
                             <div class="flex items-center">
 
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">condisi: {{ Str::limit($rentcar['body'], 100)}}</p>
+                                <p class="text-sm font-medium text-gray-900 dark:text-white"> {{ Str::limit($rentcar['body'], 100)}}</p>
                             </div>
 
                         </div>

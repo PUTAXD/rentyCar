@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Car;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Merk;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\MerkSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +22,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([MerkSeeder::class]);
 
-        Car::factory(10)->create();
+
+        Car::factory(12)->recycle([
+            Merk::all(),
+        ])->create();
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Merk;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,6 +19,7 @@ class CarFactory extends Factory
     public function definition(): array
     {
         return [
+            'merk_id' => Merk::factory(),
             'licensePlate' => fake()->sentence(1,false),
             'type' =>fake()->sentence(1,false),
             'slug' => Str::slug(fake()->sentence()),
