@@ -21,7 +21,7 @@
                     <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                 </li>
                 <li>
-                    <x-nav-link href="/" :active="request()->is('/rentcar')">RentCar</x-nav-link>
+                    <x-nav-link href="/" :active="request()->is('/rentcars')">RentCar</x-nav-link>
                 </li>
                 <li>
                   <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
@@ -44,10 +44,10 @@
                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
             </li>
             <li>
-                <x-nav-link href="/rentcar" :active="request()->is('rentcar')">RentCar</x-nav-link>
+                <x-nav-link href="/rentcars" :active="request()->is('rentcars')">RentCar</x-nav-link>
             </li>
             {{-- {{ dd( request()->is('rentcar')) }} --}}
-          
+
           </ul>
         </div>
         </div>
