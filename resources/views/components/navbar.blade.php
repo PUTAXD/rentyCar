@@ -46,6 +46,10 @@
             <li>
                 <x-nav-link href="/rentcars" :active="request()->is('rentcars')">RentCar</x-nav-link>
             </li>
+            <li>
+                <x-nav-link href="/create" :active="request()->is('create')">Create Car</x-nav-link>
+            </li>
+
             {{-- {{ dd( request()->is('rentcar')) }} --}}
 
           </ul>

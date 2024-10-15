@@ -12,7 +12,7 @@ class RentCarController extends Controller
      */
     public function index()
     {
-        //
+        // return view('.create');
     }
 
     /**
@@ -20,7 +20,7 @@ class RentCarController extends Controller
      */
     public function create()
     {
-        //
+        return view('createCar');
     }
 
     /**
@@ -28,7 +28,22 @@ class RentCarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // Validasi form
+         $validatedData = $request->validate([
+            'merk_id' => 'required|string',
+            'slug' => 'required|string',
+            'licensePlate' => 'required|string',
+            'initialCondition' => 'required|string',
+            'body' => 'required|string',
+            'price' => 'required|numeric',
+            'type' => 'required|string',  // Field type harus diisi
+        ]);
+
+        // Menyimpan data ke database
+        Car::create($validatedData);
+
+        // Redirect ke halaman lain setelah menyimpan data
+        return redirect()->route('create')->with('success', 'Data has been saved successfully!');
     }
 
     /**

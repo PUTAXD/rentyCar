@@ -3,6 +3,7 @@
 use App\Models\Car;
 use App\Models\Merk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RentCarController;
 
 Route::get('/', function () {
     return view('home');
@@ -22,6 +23,12 @@ Route::get('/merks/{merk:slug}', function (Merk $merk) {
     return view('rentcars', ['title' => ' Article in : '.$merk->name, 'rentcars' => $merk->cars]);
 });
 
+// Route::get('/createcar',function(){
+//     return view('createCar');
+// });
+
+Route::get('/create', [RentCarController::class, 'create'])->name('create');
+Route::post('/store', [RentCarController::class, 'store'])->name('store');
 // Route::get('/', function () {
 //     return view('home');
 // });
