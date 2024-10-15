@@ -18,6 +18,11 @@ Route::get('/rentcars', function () {
 
 });
 
+Route::get('/rentcars/{rentcar:slug}', function(Car $rentcar){
+
+    return view('rentcar', ['title' => 'Single Post', 'rentcar' => $rentcar]);
+});
+
 Route::get('/merks/{merk:slug}', function (Merk $merk) {
     // $posts = $category->posts->load('category','author');
     return view('rentcars', ['title' => ' Article in : '.$merk->name, 'rentcars' => $merk->cars]);
