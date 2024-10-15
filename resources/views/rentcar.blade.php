@@ -3,10 +3,11 @@
     <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
       <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
         <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
-          <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt="" />
+            {{-- <img  src="{{ asset('carImage/' . $rentcar->image ) }}" alt="Car Image" width="200px" /> --}}
+          <img class="w-full dark:hidden" src="{{ asset('carImage/' . $rentcar->image ) }}" alt="" />
           <img class="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="" />
         </div>
-
+        {{-- {{dump($rentcar)}} --}}
         <div class="mt-6 sm:mt-8 lg:mt-0">
           <h1
             class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white"
@@ -83,24 +84,26 @@
           </p>
         </div>
       </div>
+
       <div class="flex flex-row mt-10 justify-center gap-3">
         <a
-          href="#"
+          href="{{$rentcar->id}}/edit"
           title=""
           class="flex items-center justify-center py-2.5 px-5 w-full text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-blue-700 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
           role="button"
         >
           Edit
-        </a>
 
-        <a
-          href="#"
-          title=""
-          class="flex items-center justify-center py-2.5 px-5 w-full text-sm font-medium text-gray-900 focus:outline-none bg-red-500 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-          role="button"
-        >
-          delete
+
         </a>
+        <form action="{{ route('rentcar.destroy', $rentcar->id) }}" method="POST">
+            @csrf
+            @method('DELETE') <!-- Menggunakan method DELETE untuk form -->
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white  py-2 px-4 rounded">
+                Delete
+            </button>
+        </form>
+
       </div>
     </div>
   </section>

@@ -28,18 +28,38 @@ class RentCarController extends Controller
      */
     public function store(Request $request)
     {
-         // Validasi form
-         $validatedData = $request->validate([
+        // Validasi form
+        $validatedData = $request->validate([
             'merk_id' => 'required|string',
             'slug' => 'required|string',
             'licensePlate' => 'required|string',
             'initialCondition' => 'required|string',
             'body' => 'required|string',
             'price' => 'required|numeric',
-            'type' => 'required|string',  // Field type harus diisi
+            'type' => 'required|string', // Field type harus diisi
+            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            // $image->storeAs('public/products', $image->hashName());
+            $imageName = $image->hashName(); // Nama gambar yang di-hash untuk menghindari duplikat nama
+            $image->move(public_path('carImage'), $imageName); // Simpan gambar
+            $validatedData['image'] = $imageName; // Simpan path gambar ke database
+        }
+
         // Menyimpan data ke database
+
+        // Car::create([
+        //     'merk_id'           => $request->merk_id,
+        //     'slug'              => $request->slug,
+        //     'licensePlate'      => $request->licensePlate,
+        //     'initialCondition'  => $request->initialCondition,
+        //     'body'              => $request->body,
+        //     'price'             => $request->price,
+        //     'image'             => $imagePath, // Simpan nama file gambar (jika ada)
+        // ]);
+
         Car::create($validatedData);
 
         // Redirect ke halaman lain setelah menyimpan data
@@ -57,24 +77,62 @@ class RentCarController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Car $car)
+
+    public function edit($id)
     {
-        //
+        // Cari data berdasarkan ID
+        $car = Car::findOrFail($id);
+
+        // Menampilkan form edit dan mengirim data yang ditemukan
+        return view('editCar', compact('car'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Car $car)
+    // Menyimpan data yang telah diedit
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'merk_id' => 'required|string',
+            'slug' => 'required|string',
+            'licensePlate' => 'required|string',
+            'initialCondition' => 'required|string',
+            'body' => 'required|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Cari data berdasarkan ID
+        $car = Car::findOrFail($id);
+
+        // Jika ada file gambar baru yang diunggah
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            // $image->storeAs('public/products', $image->hashName());
+            $imageName = $image->hashName(); // Nama gambar yang di-hash untuk menghindari duplikat nama
+            $image->move(public_path('carImage'), $imageName); // Simpan gambar
+            $validatedData['image'] = $imageName; // Simpan path gambar ke database
+        }
+
+        // Update data dengan input baru
+        $car->update($validatedData);
+
+        // Redirect ke halaman list dengan pesan sukses
+        return redirect()->route('rentcars')->with('success', 'Car has been updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Car $car)
+    public function destroy($id)
     {
-        //
+        $car = Car::findOrFail($id);
+        // Hapus data dari database
+        $car->delete();
+
+        // Redirect dengan pesan sukses setelah data dihapus
+        return redirect()->route('rentcars')->with('success', 'Data has been deleted successfully!');
     }
 }

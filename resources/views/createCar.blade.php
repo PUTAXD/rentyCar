@@ -3,7 +3,7 @@
         <h1>CRUD Form</h1>
 
         <!-- Form untuk create data -->
-        <form action="{{ route('store') }}" method="POST">
+        <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <label for="merk_id">Merk ID:</label>
@@ -26,6 +26,10 @@
 
             <label for="type">Type:</label>
             <input type="text" id="type" name="type" value="{{ old('type') }}" required><br><br>
+
+            <!-- Input untuk gambar -->
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image"><br><br>
 
             <button type="submit">Submit</button>
         </form>

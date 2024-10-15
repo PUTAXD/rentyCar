@@ -16,7 +16,7 @@ Route::get('/rentcars', function () {
         'rentcars' => Car::filter(request(['search','merks']))->latest()->simplepaginate(9)
     ]);
 
-});
+})->name('rentcars');
 
 Route::get('/rentcars/{rentcar:slug}', function(Car $rentcar){
 
@@ -34,6 +34,11 @@ Route::get('/merks/{merk:slug}', function (Merk $merk) {
 
 Route::get('/create', [RentCarController::class, 'create'])->name('create');
 Route::post('/store', [RentCarController::class, 'store'])->name('store');
+
+Route::delete('/rentcars/{id}', [RentCarController::class, 'destroy'])->name('rentcar.destroy');
+
+Route::get('/rentcars/{id}/edit', [RentCarController::class, 'edit'])->name('rentcar.edit');
+Route::put('/rentcars/{id}', [RentCarController::class, 'update'])->name('rentcar.update');
 // Route::get('/', function () {
 //     return view('home');
 // });

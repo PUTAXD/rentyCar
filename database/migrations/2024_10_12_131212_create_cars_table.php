@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('initialCondition');
             $table->text('body');
             $table->decimal('price', 10, 2);
+            $table->string('image');
             $table->timestamps();
         });
     }

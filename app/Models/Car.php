@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Car extends Model
 {
     use HasFactory;
-    protected $fillable = ['merk_id', 'slug', 'licensePlate', 'initialCondition', 'body', 'price','type'];
+    protected $fillable = ['merk_id', 'slug', 'licensePlate', 'initialCondition', 'body', 'price','type', 'image'];
 
     public function merk(): BelongsTo
     {
