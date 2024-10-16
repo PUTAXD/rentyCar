@@ -1,8 +1,8 @@
     {{-- Navbar --}}
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white border-b border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full z-10">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="{{ asset('images/logo.jpg') }}" class="h-8" alt="Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">RentyCar</span>
         </a>
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -18,13 +18,13 @@
               </div>
               <ul class="py-2" aria-labelledby="user-menu-button">
                 <li>
-                    <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                    <a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Home</a>
                 </li>
                 <li>
-                    <x-nav-link href="/" :active="request()->is('/rentcars')">All Car</x-nav-link>
+                    <a href="/rentcars" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">All Car</a>
                 </li>
                 <li>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                  <a href="/create" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Input Car</a>
                 </li>
                 <li>
                   <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
@@ -47,7 +47,7 @@
                 <x-nav-link href="/rentcars" :active="request()->is('rentcars')">All Car</x-nav-link>
             </li>
             <li>
-                <x-nav-link href="/create" :active="request()->is('create')">Create Car</x-nav-link>
+                <x-nav-link href="/create" :active="request()->is('create')">Input Car</x-nav-link>
             </li>
 
             {{-- {{ dd( request()->is('rentcar')) }} --}}
