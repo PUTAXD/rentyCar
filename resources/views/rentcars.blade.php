@@ -1,7 +1,5 @@
 <x-layout>
-
-
-    <div class="py-4 px-4 mx-auto max-w-screen-xl  lg:px-6">
+    <div class="py-14 px-4 mx-auto max-w-screen-xl lg:px-6">
         <div class="mx-auto max-w-screen-md sm:text-center">
             <form>
                 @if (request('merk'))

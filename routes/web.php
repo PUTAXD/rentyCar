@@ -20,7 +20,7 @@ Route::get('/rentcars', function () {
 
 Route::get('/rentcars/{rentcar:slug}', function(Car $rentcar){
 
-    return view('rentcar', ['title' => 'Single Post', 'rentcar' => $rentcar]);
+    return view('rentcar', ['rentcar' => $rentcar]);
 });
 
 Route::get('/merks/{merk:slug}', function (Merk $merk) {
