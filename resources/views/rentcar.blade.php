@@ -1,7 +1,7 @@
 <x-layout>
   <section class="py-20 bg-white md:py-20 dark:bg-gray-900 antialiased">
     <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
-      <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
+      <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16 items-center">
         <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
             {{-- <img  src="{{ asset('carImage/' . $rentcar->image ) }}" alt="Car Image" width="200px" /> --}}
           <img class="w-full dark:hidden" src="{{ asset('carImage/' . $rentcar->image ) }}" alt="" />
@@ -79,6 +79,12 @@
 
           <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
+          <h3 class="font-semibold">Keadaan Mobil:</h3>
+          <p class="mb-6 text-gray-500 dark:text-gray-400">
+            {{ $rentcar['initialCondition'] }}
+          </p>
+
+          <h3 class="font-semibold">Deskripsi Mobil:</h3>
           <p class="mb-6 text-gray-500 dark:text-gray-400">
             {{ $rentcar['body'] }}
           </p>
@@ -99,6 +105,10 @@
             </div>
         </div>
       </div>
+
+    <div class="py-8">
+        <a href="/rentcars" class="block text-xl text-blue-600 hover:underline"> &laquo;Back to All Car</a>
+    </div>
 
       <!-- Tampilkan pesan error jika ada -->
       @if ($errors->any())
@@ -144,16 +154,16 @@
                         <input type="text" id="licensePlate" name="licensePlate" value="{{ old('licensePlate', $rentcar->licensePlate) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     </div>
                     <div class="sm:col-span-2">
+                      <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                      <input type="number" id="price" name="price" value="{{ old('price', $rentcar->price) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    </div>
+                    <div class="sm:col-span-2">
                       <label for="initialCondition" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Initial Condition</label>
                       <textarea id="initialCondition" name="initialCondition" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a description...">{{ old('initialCondition', $rentcar->initialCondition) }}</textarea>                    
                     </div>
                     <div class="sm:col-span-2">
-                      <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body</label>
+                      <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                       <textarea id="body" name="body" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a description...">{{ old('body', $rentcar->body) }}</textarea>                    
-                    </div>
-                    <div class="sm:col-span-2">
-                      <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                      <input type="number" id="price" name="price" value="{{ old('price', $rentcar->price) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     </div>
                     <div>
                       <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Renew New Image:</label>
@@ -171,5 +181,5 @@
   </div>
 </div>
 </section>
-
+<x-footer></x-footer>
 </x-layout>

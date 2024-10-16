@@ -3,14 +3,13 @@
 use App\Models\Car;
 use App\Models\Merk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RentCarController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/rentcars', function () {
-    dump(request('merks'));
+    // dump(request('merks'));
     return view('rentcars', [
         'title' => 'rentCars',
         'rentcars' => Car::filter(request(['search','merks']))->latest()->simplepaginate(9)

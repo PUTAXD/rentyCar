@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Merk;
 use Illuminate\Http\Request;
 
 class RentCarController extends Controller
@@ -20,7 +21,8 @@ class RentCarController extends Controller
      */
     public function create()
     {
-        return view('createCar');
+        $merks = Merk::all();
+        return view('createCar',  compact('merks'));
     }
 
     /**
@@ -30,7 +32,7 @@ class RentCarController extends Controller
     {
         // Validasi form
         $validatedData = $request->validate([
-            'merk_id' => 'required|string',
+            'merk_id' => 'required|exists:merks,id',
             'slug' => 'required|string',
             'licensePlate' => 'required|string',
             'initialCondition' => 'required|string',
