@@ -26,8 +26,6 @@ Di page ini akan ditampil informasi lengkap dari mobil yang kami sewakan.
 
 Jika menekan tombol update akan muncul popup untuk mengedit data dari mobil yang akan disewakan dan jika menekan tombol delete akan menghilang seluruh data dari mobil tersebut.
 ![image](https://github.com/user-attachments/assets/44799dbf-e434-491e-af95-f2dd3252bd18)
-
-
   
 ## Input Car
 ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/Pbkk_inputCar_1.png)
@@ -35,3 +33,6 @@ Jika menekan tombol update akan muncul popup untuk mengedit data dari mobil yang
 ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/pbkk_inputCar_2.png)
 
 Pengguna diminta untuk mengisi beberapa field seperti "Merk" (merek mobil), "Type" (jenis produk), "Slug", "License Plate" (nomor plat), "Price" (harga), "Initial Condition" (kondisi awal), dan "Description" (deskripsi). Selain itu, ada juga opsi untuk mengunggah gambar mobil yang relevan. Setelah mengisi semua informasi, pengguna dapat menekan tombol "Add Car" untuk menambahkan mobil ke dalam daftar. 
+
+## Link Demo
+Berikut adalah link demo <a href="https://youtu.be/NvjWMbTbJpo">https://youtu.be/NvjWMbTbJpo</a>
