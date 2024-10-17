@@ -68,10 +68,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## All Cars
 ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/PBKK_rentCars.jpeg)
-    
+
+Di dalam halaman ini, pengguna dapat melihat berbagai pilihan mobil yang tersedia untuk disewa. Setiap mobil ditampilkan dalam kartu yang memuat gambar, nama mobil, tipe (misalnya, BMW, Mercedes, Toyota), deskripsi singkat, dan harga sewa per hari dalam rupiah. Terdapat fitur pencarian di bagian atas untuk memudahkan pengguna mencari mobil tertentu. Pengguna juga dapat menavigasi antara halaman dengan menggunakan tombol "Previous" dan "Next" untuk melihat lebih banyak pilihan mobil.
+
 ## One Car
   
 ## Input Car
 ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/Pbkk_inputCar_1.png)
     
 ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/pbkk_inputCar_2.png)
+
+Pengguna diminta untuk mengisi beberapa field seperti "Merk" (merek mobil), "Type" (jenis produk), "Slug", "License Plate" (nomor plat), "Price" (harga), "Initial Condition" (kondisi awal), dan "Description" (deskripsi). Selain itu, ada juga opsi untuk mengunggah gambar mobil yang relevan. Setelah mengisi semua informasi, pengguna dapat menekan tombol "Add Car" untuk menambahkan mobil ke dalam daftar. 
