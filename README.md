@@ -66,7 +66,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-## ALL CARS
-
-## ONE CAR
-## INPUT CAR
+## All Cars
+    ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/PBKK_rentCars.jpeg)
+    
+## One Car
+  
+## Input Car
+    ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/inputCar1.jpeg)
+    
+    ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/inputCar2.jpeg)
