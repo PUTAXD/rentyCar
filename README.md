@@ -67,7 +67,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ## All Cars
-    ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/PBKK_rentCars.jpeg)
+   ` ![Screenshot (998)](https://github.com/PUTAXD/rentyCar/blob/main/Image_For_Readme/PBKK_rentCars.jpeg)
     
 ## One Car
   
